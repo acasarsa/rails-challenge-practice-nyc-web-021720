@@ -1,0 +1,26 @@
+<h1> Create A New Employee <h1>
+
+	<ul>
+		<% if @employee.errors.any? %>
+    <h4>Could not create employee:</h4>
+			<% @employee.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+		<% end %>
+	</ul>
+
+<div class="container">    
+<%= form_for @employee do |f| %>
+    <h3><%= f.label "Name:" %>
+    <%= f.text_field :name%></h3>
+
+    <%= f.label "Title:" %>
+    <%= f.text_field :title%><br>
+
+    <h3><%= f.label "Company Name:" %>
+    <%= f.collection_select :company_id, Company.all, :id, :name, prompt: true %></h3><br>
+
+    <%= f.submit %>
+<% end %>
+</div>
+

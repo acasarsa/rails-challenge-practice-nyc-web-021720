@@ -1,0 +1,16 @@
+<h1>Office Flr. <%= @office.floor %> </h1>
+
+<h2>Building</h2>
+<%= @office.building.name%><br>
+
+<h2>Company</h2>
+<%= @office.company.name %><br>
+
+
+<h2>List of Employees in this company</h2>
+<ol>
+<% @office.company.employees.each do |employee|%>
+   <li> <%=employee.name %></li>
+<%end%>
+</ol>
+

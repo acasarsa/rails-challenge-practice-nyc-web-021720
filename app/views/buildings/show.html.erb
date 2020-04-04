@@ -1,0 +1,17 @@
+<h1>Building Show Page</h1>
+
+<h4>Building Name: <%=@building.name%></h4>
+<h4>Country: <%=@building.country%></h4>
+<p>Rent per Floor: $<%= number_with_delimiter(@building.rent_per_floor)%></p>
+<h4>Number of Floors: <%= @building.number_of_floors%></h4>
+
+<h3>List Companies in this Building:</h3>
+<% @building.offices.each do |office| %>
+  <%= office.company.name %> - Floor: <%= office.floor %><br>
+<% end %>
+
+<h3>Rent</h3>
+<p>$<%= number_with_delimiter(@building.rent_per_building) %></p>
+
+<h2>Number of Employees</h2>
+<%= @building.total_employees %>

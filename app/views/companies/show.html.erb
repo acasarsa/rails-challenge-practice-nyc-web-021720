@@ -1,0 +1,20 @@
+<h1> <%= @company.name %>'s Page <h1>
+
+<h3>Buildings</h3>
+<ul>
+<% @company.offices.each do |office| %>
+  <li><%= office.building.name %> - Floor: <%= office.floor %></li>
+<% end %>
+</ul>
+
+
+<%= link_to "Add an Employee", new_employee_path %><br><br>
+<ol>
+<% @company.employees.each do |employee| %>
+  <li><%= employee.name %> <%= button_to "Fire Employee", employee, method: :delete %></li>
+<% end %>
+</ol>
+
+Total Rent: $<%= number_with_delimiter(@company.total_rent) %>
+
+

@@ -1,0 +1,28 @@
+<h1>Create a new Company</h1>
+
+	<ul>
+		<% if @company.errors.any? %>
+    <h2>Could not create company:</h2>
+			<% @company.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+		<% end %>
+	</ul>
+
+<%= form_for @company do |f| %>
+  <%= f.label "Company Name:" %>
+  <%= f.text_field :name %><br>
+
+  <h2>Buildings</h2>
+	<% Building.all.each do |b| %>
+		<%= f.fields_for :offices, b do |b_field| %>
+			<%= b_field.hidden_field :id %><br>
+			<b><%= b_field.label b.name %><br></b>
+			Select from available building floors: <%= b_field.collection_check_boxes :offices, b.empty_offices, :floor, :floor %><br>
+		<% end %>
+	<% end %>
+<br>
+
+  <%= f.submit %>
+<% end %>
+

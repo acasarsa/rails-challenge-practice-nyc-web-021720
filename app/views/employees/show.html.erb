@@ -1,0 +1,7 @@
+<h1> <%= @employee.name%>'s Page<h1>
+<br>
+Professional Title: <%= @employee.title %><br><br>
+Current Company: <%= @employee.company.name%><br><br>
+
+<%= link_to "Edit Employee Information", edit_employee_path %><br><br>
+<%= link_to "Fire Employee", @employee, method: :delete %>

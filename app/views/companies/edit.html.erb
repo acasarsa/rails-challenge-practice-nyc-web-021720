@@ -1,0 +1,20 @@
+<h1>Edit <%= @company.name %></h1>
+
+<%= form_for @company do |f| %>
+  <%= f.label "Name:" %>
+  <%= f.text_field :name %><br>
+
+  <%= f.label "Country:" %>
+  <%= f.text_field :country %><br>
+
+  <%= f.label "Address:" %>
+  <%= f.text_field :address %><br>
+
+  <%= f.label "Rent:" %>
+  <%= f.number_field :rent_per_floor %><br>
+
+  <%= f.label "Number of Floors:" %>
+  <%= f.number_field :number_of_floors %><br>
+
+  <%= f.submit %>
+<% end %>
